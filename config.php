@@ -4,20 +4,21 @@
 //  Ajuste as credenciais conforme seu ambiente
 // =============================================
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');        // usuário do phpMyAdmin
-define('DB_PASS', '');            // senha do phpMyAdmin (vazio no XAMPP padrão)
-define('DB_NAME', 'cadastro_db'); // nome do banco de dados
+define('DB_HOST', getenv('MYSQLHOST') ?: 'localhost');
+define('DB_USER', getenv('MYSQLUSER') ?: 'root');
+define('DB_PASS', getenv('MYSQLPASSWORD') ?: '');
+define('DB_NAME', getenv('MYSQLDATABASE') ?: 'cadastro_db');
+define('DB_PORT', getenv('MYSQLPORT') ?: '3306');
 
 // Cria conexão
 function getConnection(): mysqli {
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME, (int)DB_PORT);
 
     if ($conn->connect_error) {
         http_response_code(500);
         die(json_encode([
             'success' => false,
-            'message' => 'Erro de conexão com o banco de dados: ' . $conn->connect_error
+            'message' => 'Erro de conexão: ' . $conn->connect_error
         ]));
     }
 

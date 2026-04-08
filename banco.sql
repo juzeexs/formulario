@@ -1,9 +1,3 @@
--- =============================================
---  Execute este script no phpMyAdmin
---  Menu: SQL > cole o conteúdo abaixo > Executar
--- =============================================
-
--- 1. Criar banco de dados
 CREATE DATABASE IF NOT EXISTS cadastro_db
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
@@ -15,7 +9,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     id          INT UNSIGNED    AUTO_INCREMENT PRIMARY KEY,
     nome        VARCHAR(100)    NOT NULL,
     email       VARCHAR(150)    NOT NULL UNIQUE,
-    senha       VARCHAR(255)    NOT NULL,          -- armazenada com password_hash()
+    senha       VARCHAR(255)    NOT NULL,
     criado_em   DATETIME        DEFAULT CURRENT_TIMESTAMP,
     atualizado_em DATETIME      DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
