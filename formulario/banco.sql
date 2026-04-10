@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS cadastro_db
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+
+USE cadastro_db;
+
+-- 2. Criar tabela de usuários
+CREATE TABLE IF NOT EXISTS usuarios (
+    id          INT UNSIGNED    AUTO_INCREMENT PRIMARY KEY,
+    nome        VARCHAR(100)    NOT NULL,
+    email       VARCHAR(150)    NOT NULL UNIQUE,
+    senha       VARCHAR(255)    NOT NULL,
+    criado_em   DATETIME        DEFAULT CURRENT_TIMESTAMP,
+    atualizado_em DATETIME      DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
