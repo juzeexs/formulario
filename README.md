@@ -139,5 +139,3 @@ Basta configurar as variáveis de ambiente `MYSQLHOST`, `MYSQLUSER`, `MYSQLPASSW
 Este projeto está sob a licença **MIT**. Sinta-se livre para usar, modificar e distribuir.
 
 ---
-
-<p align="center">Feito com 💛 por <a href="https://github.com/juzeexs">juzeexs</a></p>
