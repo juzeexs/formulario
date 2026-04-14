@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lineGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+
+.welcome-card {
+  background: #fff;
+  border: 1px solid #e8dcc8;
+  border-radius: 18px;
+  padding: 3rem 3.5rem;
+  max-width: 460px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.welcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #cfa15a 0%, #e8c07a 50%, #cfa15a 100%);
+  background-size: 200% auto;
+  transform-origin: left;
+  animation:
+    lineGrow 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both,
+    shimmer  3s linear 1s infinite;
+}
+
+.welcome-card::after {
+  content: '';
+  position: absolute;
+  bottom: -70px; right: -70px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: #cfa15a;
+  opacity: 0.05;
+  animation: fadeUp 1s ease 0.5s both;
+}
+
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #cfa15a;
+  margin-bottom: 1.4rem;
+  animation: fadeUp 0.5s ease 0.35s both;
+}
+
+.welcome-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #cfa15a;
+  opacity: 0.7;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: #1a1208;
+  line-height: 1.25;
+  margin-bottom: 0.6rem;
+  animation: fadeUp 0.5s ease 0.45s both;
+}
+
+h1 span {
+  color: #cfa15a;
+  font-weight: 600;
+}
+
+.welcome-subtitle {
+  font-size: 13.5px;
+  color: #8a7d6a;
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.5s ease 0.55s both;
+}
+
+.divider {
+  height: 1px;
+  background: #ede5d8;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.5s ease 0.6s both;
+}
+
+a.btn-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: #fff;
+  border: 1px solid #cfa15a;
+  border-radius: 8px;
+  color: #cfa15a;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, color 0.2s;
+  animation: fadeUp 0.5s ease 0.7s both;
+}
+
+a.btn-logout:hover {
+  background: #cfa15a;
+  color: #fff;
+}
+
+a.btn-logout svg {
+  width: 14px; height: 14px;
+  transition: transform 0.2s;
+}
+
+a.btn-logout:hover svg {
+  transform: translateX(2px);
+}
+
+@media (max-width: 480px) {
+  body {
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    min-height: 100vh;
+  }
+
+  .welcome-card {
+    padding: 2rem 1.5rem;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .welcome-subtitle {
+    font-size: 13px;
+    margin-bottom: 1.5rem;
+  }
+
+  .welcome-badge {
+    margin-bottom: 1rem;
+  }
+
+  .divider {
+    margin-bottom: 1.5rem;
+  }
+
+  a.btn-logout {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 16px;
+  }
+}
